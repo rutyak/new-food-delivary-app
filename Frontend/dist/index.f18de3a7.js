@@ -70384,167 +70384,49 @@ const Search = ({ setFilteredCard, setSearch, search, allCard, cart })=>{
     };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: styles.search,
-        children: [
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _react.Accordion), {
-                allowMultiple: true,
-                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _react.AccordionItem), {
-                    className: styles["location-detector"],
-                    borderBottomWidth: "0px",
-                    borderTopWidth: "0px",
-                    borderRadius: "5px",
-                    maxW: "fit-content",
-                    "data-testid": "accordian",
-                    children: [
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
-                            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _react.AccordionButton), {
-                                _expanded: {
-                                    bg: "#163c48",
-                                    color: "white"
-                                },
-                                children: [
-                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _react.Box), {
-                                        as: "span",
-                                        flex: "1",
-                                        textAlign: "left",
-                                        display: "flex",
-                                        alignContent: "center",
-                                        justifyContent: "center",
-                                        gap: "4px",
-                                        children: [
-                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _react.Image), {
-                                                src: (0, _locationPngDefault.default),
-                                                boxSize: "28px"
-                                            }, void 0, false, {
-                                                fileName: "public/components/search-input/Search.js",
-                                                lineNumber: 94,
-                                                columnNumber: 17
-                                            }, undefined),
-                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _react.Text), {
-                                                pt: "2px",
-                                                children: "Location"
-                                            }, void 0, false, {
-                                                fileName: "public/components/search-input/Search.js",
-                                                lineNumber: 95,
-                                                columnNumber: 17
-                                            }, undefined)
-                                        ]
-                                    }, void 0, true, {
-                                        fileName: "public/components/search-input/Search.js",
-                                        lineNumber: 85,
-                                        columnNumber: 15
-                                    }, undefined),
-                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _react.AccordionIcon), {}, void 0, false, {
-                                        fileName: "public/components/search-input/Search.js",
-                                        lineNumber: 99,
-                                        columnNumber: 15
-                                    }, undefined)
-                                ]
-                            }, void 0, true, {
-                                fileName: "public/components/search-input/Search.js",
-                                lineNumber: 84,
-                                columnNumber: 13
-                            }, undefined)
-                        }, void 0, false, {
-                            fileName: "public/components/search-input/Search.js",
-                            lineNumber: 83,
-                            columnNumber: 11
-                        }, undefined),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _react.AccordionPanel), {
-                            bg: "white",
-                            className: styles["accordian-panal"],
-                            pb: "0px",
-                            pt: "0px",
-                            borderRadius: "5px",
-                            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _react.Box), {
-                                display: "flex",
-                                alignContent: "center",
-                                justifyContent: "center",
-                                gap: "6px",
-                                className: styles["accordian-panal-detect"],
-                                onClick: handleDetectLocation,
-                                children: [
-                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _react.Image), {
-                                        src: (0, _detectorPngDefault.default),
-                                        boxSize: "26px"
-                                    }, void 0, false, {
-                                        fileName: "public/components/search-input/Search.js",
-                                        lineNumber: 117,
-                                        columnNumber: 15
-                                    }, undefined),
-                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _react.Text), {
-                                        color: "#e43636",
-                                        children: "Detect your location"
-                                    }, void 0, false, {
-                                        fileName: "public/components/search-input/Search.js",
-                                        lineNumber: 118,
-                                        columnNumber: 15
-                                    }, undefined)
-                                ]
-                            }, void 0, true, {
-                                fileName: "public/components/search-input/Search.js",
-                                lineNumber: 109,
-                                columnNumber: 13
-                            }, undefined)
-                        }, void 0, false, {
-                            fileName: "public/components/search-input/Search.js",
-                            lineNumber: 102,
-                            columnNumber: 11
-                        }, undefined)
-                    ]
-                }, void 0, true, {
+        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _react.Box), {
+            position: "relative",
+            children: [
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _react.Image), {
+                    src: (0, _searchPngDefault.default),
+                    boxSize: "26px",
+                    position: "absolute",
+                    top: "9px",
+                    left: "8px",
+                    objectFit: "cover",
+                    zIndex: "100",
+                    className: styles["search-icon"]
+                }, void 0, false, {
                     fileName: "public/components/search-input/Search.js",
-                    lineNumber: 75,
+                    lineNumber: 125,
                     columnNumber: 9
+                }, undefined),
+                !cart && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _react.Input), {
+                    focusBorderColor: "lime",
+                    placeholder: "Search your food...",
+                    onChange: (e)=>handleSearch(e),
+                    onKeyDown: (e)=>handleEnter(e),
+                    value: search,
+                    className: "search"
+                }, void 0, false, {
+                    fileName: "public/components/search-input/Search.js",
+                    lineNumber: 136,
+                    columnNumber: 11
+                }, undefined),
+                search && search !== " " && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _searchListDefault.default), {
+                    resultList: resultList
+                }, void 0, false, {
+                    fileName: "public/components/search-input/Search.js",
+                    lineNumber: 146,
+                    columnNumber: 38
                 }, undefined)
-            }, void 0, false, {
-                fileName: "public/components/search-input/Search.js",
-                lineNumber: 74,
-                columnNumber: 7
-            }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _react.Box), {
-                position: "relative",
-                children: [
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _react.Image), {
-                        src: (0, _searchPngDefault.default),
-                        boxSize: "26px",
-                        position: "absolute",
-                        top: "8px",
-                        left: "8px",
-                        objectFit: "cover",
-                        zIndex: "100",
-                        className: styles["search-icon"]
-                    }, void 0, false, {
-                        fileName: "public/components/search-input/Search.js",
-                        lineNumber: 125,
-                        columnNumber: 9
-                    }, undefined),
-                    !cart && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _react.Input), {
-                        focusBorderColor: "lime",
-                        placeholder: "Search your food...",
-                        onChange: (e)=>handleSearch(e),
-                        onKeyDown: (e)=>handleEnter(e),
-                        value: search,
-                        className: "search"
-                    }, void 0, false, {
-                        fileName: "public/components/search-input/Search.js",
-                        lineNumber: 136,
-                        columnNumber: 11
-                    }, undefined),
-                    search && search !== " " && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _searchListDefault.default), {
-                        resultList: resultList
-                    }, void 0, false, {
-                        fileName: "public/components/search-input/Search.js",
-                        lineNumber: 146,
-                        columnNumber: 38
-                    }, undefined)
-                ]
-            }, void 0, true, {
-                fileName: "public/components/search-input/Search.js",
-                lineNumber: 124,
-                columnNumber: 7
-            }, undefined)
-        ]
-    }, void 0, true, {
+            ]
+        }, void 0, true, {
+            fileName: "public/components/search-input/Search.js",
+            lineNumber: 124,
+            columnNumber: 7
+        }, undefined)
+    }, void 0, false, {
         fileName: "public/components/search-input/Search.js",
         lineNumber: 73,
         columnNumber: 5
@@ -132821,8 +132703,8 @@ const VariableProvider = ({ children })=>{
     _s();
     const [user, setUser] = (0, _react.useState)(null);
     const [location, setLocation] = (0, _react.useState)({
-        lat: 12.89960,
-        long: 80.22090
+        lat: 13.0081,
+        long: 77.5648
     });
     (0, _react.useEffect)(()=>{
         (0, _auth.onAuthStateChanged)((0, _firebase.auth), (use)=>{
@@ -132843,7 +132725,7 @@ const VariableProvider = ({ children })=>{
         columnNumber: 5
     }, undefined);
 };
-_s(VariableProvider, "DM4FsByy7cp9hXeSXW0jiwz4Mcw=");
+_s(VariableProvider, "OLyJYncrGgmiY5yUhEekHzbu2B4=");
 _c = VariableProvider;
 exports.default = VariableProvider;
 var _c;
