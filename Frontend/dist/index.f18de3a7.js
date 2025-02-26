@@ -70384,49 +70384,167 @@ const Search = ({ setFilteredCard, setSearch, search, allCard, cart })=>{
     };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: styles.search,
-        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _react.Box), {
-            position: "relative",
-            children: [
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _react.Image), {
-                    src: (0, _searchPngDefault.default),
-                    boxSize: "26px",
-                    position: "absolute",
-                    top: "9px",
-                    left: "8px",
-                    objectFit: "cover",
-                    zIndex: "100",
-                    className: styles["search-icon"]
-                }, void 0, false, {
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _react.Accordion), {
+                allowMultiple: true,
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _react.AccordionItem), {
+                    className: styles["location-detector"],
+                    borderBottomWidth: "0px",
+                    borderTopWidth: "0px",
+                    borderRadius: "5px",
+                    maxW: "fit-content",
+                    "data-testid": "accordian",
+                    children: [
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
+                            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _react.AccordionButton), {
+                                _expanded: {
+                                    bg: "#163c48",
+                                    color: "white"
+                                },
+                                children: [
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _react.Box), {
+                                        as: "span",
+                                        flex: "1",
+                                        textAlign: "left",
+                                        display: "flex",
+                                        alignContent: "center",
+                                        justifyContent: "center",
+                                        gap: "4px",
+                                        children: [
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _react.Image), {
+                                                src: (0, _locationPngDefault.default),
+                                                boxSize: "28px"
+                                            }, void 0, false, {
+                                                fileName: "public/components/search-input/Search.js",
+                                                lineNumber: 94,
+                                                columnNumber: 17
+                                            }, undefined),
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _react.Text), {
+                                                pt: "2px",
+                                                children: "Location"
+                                            }, void 0, false, {
+                                                fileName: "public/components/search-input/Search.js",
+                                                lineNumber: 95,
+                                                columnNumber: 17
+                                            }, undefined)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "public/components/search-input/Search.js",
+                                        lineNumber: 85,
+                                        columnNumber: 15
+                                    }, undefined),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _react.AccordionIcon), {}, void 0, false, {
+                                        fileName: "public/components/search-input/Search.js",
+                                        lineNumber: 99,
+                                        columnNumber: 15
+                                    }, undefined)
+                                ]
+                            }, void 0, true, {
+                                fileName: "public/components/search-input/Search.js",
+                                lineNumber: 84,
+                                columnNumber: 13
+                            }, undefined)
+                        }, void 0, false, {
+                            fileName: "public/components/search-input/Search.js",
+                            lineNumber: 83,
+                            columnNumber: 11
+                        }, undefined),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _react.AccordionPanel), {
+                            bg: "white",
+                            className: styles["accordian-panal"],
+                            pb: "0px",
+                            pt: "0px",
+                            borderRadius: "5px",
+                            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _react.Box), {
+                                display: "flex",
+                                alignContent: "center",
+                                justifyContent: "center",
+                                gap: "6px",
+                                className: styles["accordian-panal-detect"],
+                                onClick: handleDetectLocation,
+                                children: [
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _react.Image), {
+                                        src: (0, _detectorPngDefault.default),
+                                        boxSize: "26px"
+                                    }, void 0, false, {
+                                        fileName: "public/components/search-input/Search.js",
+                                        lineNumber: 117,
+                                        columnNumber: 15
+                                    }, undefined),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _react.Text), {
+                                        color: "#e43636",
+                                        children: "Detect your location"
+                                    }, void 0, false, {
+                                        fileName: "public/components/search-input/Search.js",
+                                        lineNumber: 118,
+                                        columnNumber: 15
+                                    }, undefined)
+                                ]
+                            }, void 0, true, {
+                                fileName: "public/components/search-input/Search.js",
+                                lineNumber: 109,
+                                columnNumber: 13
+                            }, undefined)
+                        }, void 0, false, {
+                            fileName: "public/components/search-input/Search.js",
+                            lineNumber: 102,
+                            columnNumber: 11
+                        }, undefined)
+                    ]
+                }, void 0, true, {
                     fileName: "public/components/search-input/Search.js",
-                    lineNumber: 125,
+                    lineNumber: 75,
                     columnNumber: 9
-                }, undefined),
-                !cart && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _react.Input), {
-                    focusBorderColor: "lime",
-                    placeholder: "Search your food...",
-                    onChange: (e)=>handleSearch(e),
-                    onKeyDown: (e)=>handleEnter(e),
-                    value: search,
-                    className: "search"
-                }, void 0, false, {
-                    fileName: "public/components/search-input/Search.js",
-                    lineNumber: 136,
-                    columnNumber: 11
-                }, undefined),
-                search && search !== " " && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _searchListDefault.default), {
-                    resultList: resultList
-                }, void 0, false, {
-                    fileName: "public/components/search-input/Search.js",
-                    lineNumber: 146,
-                    columnNumber: 38
                 }, undefined)
-            ]
-        }, void 0, true, {
-            fileName: "public/components/search-input/Search.js",
-            lineNumber: 124,
-            columnNumber: 7
-        }, undefined)
-    }, void 0, false, {
+            }, void 0, false, {
+                fileName: "public/components/search-input/Search.js",
+                lineNumber: 74,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _react.Box), {
+                position: "relative",
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _react.Image), {
+                        src: (0, _searchPngDefault.default),
+                        boxSize: "26px",
+                        position: "absolute",
+                        top: "9px",
+                        left: "8px",
+                        objectFit: "cover",
+                        zIndex: "100",
+                        className: styles["search-icon"]
+                    }, void 0, false, {
+                        fileName: "public/components/search-input/Search.js",
+                        lineNumber: 125,
+                        columnNumber: 9
+                    }, undefined),
+                    !cart && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _react.Input), {
+                        focusBorderColor: "lime",
+                        placeholder: "Search your food...",
+                        onChange: (e)=>handleSearch(e),
+                        onKeyDown: (e)=>handleEnter(e),
+                        value: search,
+                        className: "search"
+                    }, void 0, false, {
+                        fileName: "public/components/search-input/Search.js",
+                        lineNumber: 136,
+                        columnNumber: 11
+                    }, undefined),
+                    search && search !== " " && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _searchListDefault.default), {
+                        resultList: resultList
+                    }, void 0, false, {
+                        fileName: "public/components/search-input/Search.js",
+                        lineNumber: 146,
+                        columnNumber: 38
+                    }, undefined)
+                ]
+            }, void 0, true, {
+                fileName: "public/components/search-input/Search.js",
+                lineNumber: 124,
+                columnNumber: 7
+            }, undefined)
+        ]
+    }, void 0, true, {
         fileName: "public/components/search-input/Search.js",
         lineNumber: 73,
         columnNumber: 5
@@ -130503,7 +130621,7 @@ $RefreshReg$(_c, "Cart");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@chakra-ui/react":"igDme","../../components/navbar/menuNavbar/MenuNavbar":"lbisk","react-redux":"62sf7","../../assets/rupee.png":"ap51n","./CartItem":"8vWGp","./Cart.scss":"9o86J","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"lbisk":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","react/jsx-dev-runtime":"iTorj","react":"21dqq","@chakra-ui/react":"igDme","react-redux":"62sf7","../../components/navbar/menuNavbar/MenuNavbar":"lbisk","../../assets/rupee.png":"ap51n","./Cart.scss":"9o86J","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./CartItem":"8vWGp"}],"lbisk":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$c354 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -130641,7 +130759,7 @@ $RefreshReg$(_c, "MenuNavbar");
 },{"react/jsx-dev-runtime":"iTorj","@chakra-ui/react":"igDme","./MenuNavbar.scss":"hTDrJ","../../../pages/authentication/Login":"hIsQE","react-router-dom":"9xmpe","react":"21dqq","../../../../context/VariableContext":"gBgMV","../../drawer/Drawer":"8jbln","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"hTDrJ":[function() {},{}],"ap51n":[function(require,module,exports) {
 module.exports = require("7a5df64a8b341895").getBundleURL("h7qW7") + "rupee.1725e1f6.png" + "?" + Date.now();
 
-},{"7a5df64a8b341895":"lgJ39"}],"8vWGp":[function(require,module,exports) {
+},{"7a5df64a8b341895":"lgJ39"}],"9o86J":[function() {},{}],"8vWGp":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$3645 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -130787,7 +130905,7 @@ $RefreshReg$(_c, "CartItem");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","../../../Config/Config":"1JHEf","@chakra-ui/react":"igDme","../../assets/rupee.png":"ap51n","@chakra-ui/icons":"aziK4","react-redux":"62sf7","../../slice/cartSlice":"9G4OV","./CartItem.scss":"jgMB3","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"jgMB3":[function() {},{}],"9o86J":[function() {},{}],"5q4up":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","../../../Config/Config":"1JHEf","@chakra-ui/react":"igDme","../../assets/rupee.png":"ap51n","@chakra-ui/icons":"aziK4","react-redux":"62sf7","../../slice/cartSlice":"9G4OV","./CartItem.scss":"jgMB3","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"jgMB3":[function() {},{}],"5q4up":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$177a = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -131169,7 +131287,7 @@ $RefreshReg$(_c, "Menubody");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","@chakra-ui/react":"igDme","react":"21dqq","react-router-dom":"9xmpe","../menu-options/MenuOptions":"kAg97","../../../assets/star.png":"9bwfC","../../home/footer/Footer":"chlpW","../MenuFooter.module.scss":"cyrAA","../../../components/shimmer-effect/Shimmer":"E7neL","../../../components/shimmer-effect/MenuShimmer.module.scss":"gNC0K","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","../../../../context/VariableContext":"gBgMV"}],"kAg97":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","@chakra-ui/react":"igDme","react":"21dqq","react-router-dom":"9xmpe","../menu-options/MenuOptions":"kAg97","../../../assets/star.png":"9bwfC","../../home/footer/Footer":"chlpW","../MenuFooter.module.scss":"cyrAA","../../../components/shimmer-effect/Shimmer":"E7neL","../../../components/shimmer-effect/MenuShimmer.module.scss":"gNC0K","../../../../context/VariableContext":"gBgMV","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"kAg97":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$7896 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -131588,7 +131706,7 @@ $RefreshReg$(_c, "MenuCard");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","@chakra-ui/react":"igDme","./MenuCard.scss":"4v006","../../../assets/star-icon.png":"cqYPp","../../../assets/rupee.png":"ap51n","react-redux":"62sf7","../../../slice/cartSlice":"9G4OV","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-firebase-hooks/auth":"2ExF2","../../../Firebase":"6O2hQ"}],"4v006":[function() {},{}],"cqYPp":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","@chakra-ui/react":"igDme","./MenuCard.scss":"4v006","../../../assets/star-icon.png":"cqYPp","../../../assets/rupee.png":"ap51n","react-redux":"62sf7","../../../slice/cartSlice":"9G4OV","react":"21dqq","react-firebase-hooks/auth":"2ExF2","../../../Firebase":"6O2hQ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"4v006":[function() {},{}],"cqYPp":[function(require,module,exports) {
 module.exports = require("5880c9f9d6e00f05").getBundleURL("h7qW7") + "star-icon.8aa49b8a.png" + "?" + Date.now();
 
 },{"5880c9f9d6e00f05":"lgJ39"}],"g2JXI":[function() {},{}],"JjQDS":[function(require,module,exports) {
