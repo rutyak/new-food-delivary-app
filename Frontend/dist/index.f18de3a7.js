@@ -69679,13 +69679,14 @@ const Body = ()=>{
                         children: [
                             filteredCard?.length > 0 && filteredCard?.map((data, index)=>{
                                 const uniqueKey = data?.info?.id || `fallback-${index}`;
+                                console.log("data card: ", data);
                                 return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
                                     children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cardDefault.default), {
                                         ...data?.info,
                                         grid: "grid"
                                     }, uniqueKey, false, {
                                         fileName: "public/pages/home/body/Body.js",
-                                        lineNumber: 165,
+                                        lineNumber: 166,
                                         columnNumber: 19
                                     }, undefined)
                                 }, void 0, false);
@@ -69694,7 +69695,7 @@ const Body = ()=>{
                                 newLoad: "newLoad"
                             }, void 0, false, {
                                 fileName: "public/pages/home/body/Body.js",
-                                lineNumber: 169,
+                                lineNumber: 170,
                                 columnNumber: 25
                             }, undefined)
                         ]
@@ -125805,6 +125806,8 @@ parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "addCart", ()=>addCart);
 parcelHelpers.export(exports, "removeCart", ()=>removeCart);
 parcelHelpers.export(exports, "clearAllCart", ()=>clearAllCart);
+parcelHelpers.export(exports, "decreaseQuantity", ()=>decreaseQuantity);
+parcelHelpers.export(exports, "increaseQuantity", ()=>increaseQuantity);
 var _toolkit = require("@reduxjs/toolkit");
 const cartSlice = (0, _toolkit.createSlice)({
     name: "cart",
@@ -125824,12 +125827,23 @@ const cartSlice = (0, _toolkit.createSlice)({
         removeCart: (state, action)=>{
             state.cartItems = state.cartItems.filter((item)=>item.id !== action.payload);
         },
+        increaseQuantity: (state, action)=>{
+            const itemIndex = state.cartItems.findIndex((item)=>item.id === action.payload);
+            if (itemIndex !== -1) state.cartItems[itemIndex].quantity += 1;
+        },
+        decreaseQuantity: (state, action)=>{
+            const itemIndex = state.cartItems.findIndex((item)=>item.id === action.payload);
+            if (itemIndex !== -1) {
+                if (state.cartItems[itemIndex].quantity > 1) state.cartItems[itemIndex].quantity -= 1;
+                else state.cartItems.splice(itemIndex, 1);
+            }
+        },
         clearAllCart: (state, action)=>{
             state.cartItems = [];
         }
     }
 });
-const { addCart, removeCart, clearAllCart } = cartSlice.actions;
+const { addCart, removeCart, clearAllCart, decreaseQuantity, increaseQuantity } = cartSlice.actions;
 exports.default = cartSlice.reducer;
 
 },{"@reduxjs/toolkit":"fuua8","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"fuua8":[function(require,module,exports) {
@@ -130803,8 +130817,8 @@ const CartItem = ({ item })=>{
                 borderRadius: "md"
             }, void 0, false, {
                 fileName: "public/pages/cart/CartItem.js",
-                lineNumber: 30,
-                columnNumber: 9
+                lineNumber: 28,
+                columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _react.Box), {
                 flex: "1",
@@ -130818,8 +130832,8 @@ const CartItem = ({ item })=>{
                         children: item.name
                     }, void 0, false, {
                         fileName: "public/pages/cart/CartItem.js",
-                        lineNumber: 38,
-                        columnNumber: 11
+                        lineNumber: 36,
+                        columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _react.Text), {
                         mt: 2,
@@ -130833,39 +130847,65 @@ const CartItem = ({ item })=>{
                                 boxSize: 3
                             }, void 0, false, {
                                 fileName: "public/pages/cart/CartItem.js",
-                                lineNumber: 41,
-                                columnNumber: 69
+                                lineNumber: 40,
+                                columnNumber: 11
                             }, undefined),
                             item.price ? item.price / 100 : item.defaultPrice / 100
                         ]
                     }, void 0, true, {
                         fileName: "public/pages/cart/CartItem.js",
-                        lineNumber: 41,
-                        columnNumber: 11
+                        lineNumber: 39,
+                        columnNumber: 9
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "public/pages/cart/CartItem.js",
-                lineNumber: 37,
-                columnNumber: 9
+                lineNumber: 35,
+                columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _react.Box), {
                 w: "100px",
                 color: "orange",
-                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _react.Text), {
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _react.Flex), {
+                    align: "center",
+                    gap: 2,
                     children: [
-                        "Quantity: ",
-                        item.quantity
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _react.Button), {
+                            size: "sm",
+                            onClick: ()=>dispatch((0, _cartSlice.decreaseQuantity)(item.id)),
+                            isDisabled: item.quantity === 1,
+                            children: "-"
+                        }, void 0, false, {
+                            fileName: "public/pages/cart/CartItem.js",
+                            lineNumber: 46,
+                            columnNumber: 11
+                        }, undefined),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _react.Text), {
+                            children: item.quantity
+                        }, void 0, false, {
+                            fileName: "public/pages/cart/CartItem.js",
+                            lineNumber: 53,
+                            columnNumber: 11
+                        }, undefined),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _react.Button), {
+                            size: "sm",
+                            onClick: ()=>dispatch((0, _cartSlice.increaseQuantity)(item.id)),
+                            children: "+"
+                        }, void 0, false, {
+                            fileName: "public/pages/cart/CartItem.js",
+                            lineNumber: 54,
+                            columnNumber: 11
+                        }, undefined)
                     ]
                 }, void 0, true, {
                     fileName: "public/pages/cart/CartItem.js",
-                    lineNumber: 44,
-                    columnNumber: 11
+                    lineNumber: 45,
+                    columnNumber: 9
                 }, undefined)
             }, void 0, false, {
                 fileName: "public/pages/cart/CartItem.js",
-                lineNumber: 43,
-                columnNumber: 9
+                lineNumber: 44,
+                columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _react.Button), {
                 colorScheme: "teal",
@@ -130875,19 +130915,19 @@ const CartItem = ({ item })=>{
                     boxShadow: 14
                 }, void 0, false, {
                     fileName: "public/pages/cart/CartItem.js",
-                    lineNumber: 47,
-                    columnNumber: 12
+                    lineNumber: 60,
+                    columnNumber: 9
                 }, undefined)
             }, void 0, false, {
                 fileName: "public/pages/cart/CartItem.js",
-                lineNumber: 46,
-                columnNumber: 9
+                lineNumber: 59,
+                columnNumber: 7
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "public/pages/cart/CartItem.js",
-        lineNumber: 19,
-        columnNumber: 7
+        lineNumber: 17,
+        columnNumber: 5
     }, undefined);
 };
 _s(CartItem, "rgTLoBID190wEKCp9+G8W6F7A5M=", false, function() {
